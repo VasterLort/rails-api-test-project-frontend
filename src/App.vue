@@ -1,30 +1,18 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1>Todo List Manager</h1>
-      <h6>
-        Powered by: Vue | Vuex 4 | Axios | Ruby on Rails 6 | SQLite 3
-      </h6>
-
-      <PostCreate />
-      <PostFilter />
-      <PostIndex />
+      <nav>
+        <router-link to="/">Home</router-link> |
+        <router-link to="/posts">Posts</router-link> |
+      </nav>
+      <router-view/>
     </div>
   </div>
 </template>
 
 <script>
-import PostIndex from './components/PostIndex.vue'; 
-import PostCreate from './components/PostCreate.vue';
-import PostFilter from './components/PostFilter.vue';
-
 export default {
-  name: "app",
-  components: {
-    PostIndex,
-    PostCreate,
-    PostFilter
-  }
+  name: "app"
 }
 </script>
 
