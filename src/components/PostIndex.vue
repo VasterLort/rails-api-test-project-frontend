@@ -37,11 +37,12 @@ export default {
       'deletePost',
       'updatePost'
     ]),
+
     onDoubleClick(currentPost) {
       const updatedPost = {
-      id: currentPost.id,
-      title: currentPost.title,
-      description: currentPost.description
+        id: currentPost.id,
+        title: currentPost.title,
+        description: currentPost.description
       }
       this.updatePost(updatedPost);
     }

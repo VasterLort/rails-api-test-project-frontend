@@ -11,18 +11,19 @@
         </select>
     </div>
 </template>
+
 <script>
 import { mapActions } from 'vuex'
 export default {
-    name: "PostFilter",
-    methods: mapActions(["filterPosts"])
+  name: "PostFilter",
+  methods: mapActions(["filterPosts"])
 }
 </script>
 
 <style scoped>
-    select {
-        margin-top: 20px;
-        padding: 6px;
-        border: #41b883;
-    }
+  select {
+    margin-top: 20px;
+    padding: 6px;
+    border: #41b883;
+  }
 </style>

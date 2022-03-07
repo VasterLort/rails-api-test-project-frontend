@@ -1,18 +1,14 @@
 <template>
-  <div id="app">
-    <div class="container">
-      <nav>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/posts">Posts</router-link> |
-      </nav>
-      <router-view/>
-    </div>
-  </div>
+  <SessionManager />
 </template>
 
 <script>
+import SessionManager from "./components/SessionManager.vue";
 export default {
-  name: "app"
+  name: "App",
+  components: {
+    SessionManager
+  },
 }
 </script>
 

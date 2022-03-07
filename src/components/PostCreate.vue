@@ -19,6 +19,7 @@ export default {
       title: ""
     }
   },
+  
   methods: {
     ...mapActions(['createPost']),
     onSubmit(event) {
