@@ -24,9 +24,9 @@
       <div v-else>
         <h3>Sign Up!</h3>
         <form @submit="onSignUp" class="sign-up-form">
-          <input class="sign-up-form-email" type="email" v-model="signUpEmail" placeholder="Email" />
+          <input class="sign-up-form-email" type="email" v-model="signUpEmail" placeholder="Email" name="email" />
           <br />
-          <input type="password" class="sign-up-form-password" v-model="signUpPassword" placeholder="Password"/>
+          <input type="password" class="sign-up-form-password" v-model="signUpPassword" placeholder="Password" name="password" />
           <br />
           <input type="submit" value="Sign up" class="sign-up-form-submit" />
         </form>
@@ -40,12 +40,19 @@
           <br />
           <input type="submit" value="Login" class="login-form-submit" />
         </form>
+        <h3>Reset Password!</h3>
+        <form @submit="resetPassword">
+          <input type="text" v-model="loginEmail" placeholder="Email" />
+          <br />
+          <input type="submit" value="Reset Password" />
+        </form>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "SessionManager",
@@ -87,6 +94,22 @@ export default {
       };
       this.loginUser(data);
       this.resetData();
+    },
+
+    async resetPassword(event) {
+      event.preventDefault();
+      try {
+        await axios.post("http://localhost:3000/users/password", {
+          user: { email: this.loginEmail }
+        }).then((response) => {
+          console.log(response.data)
+          alert('Success')
+        }).catch((error) => {
+          throw error
+        })
+      } catch (error) {
+        console.log(error)
+      }
     },
 
     resetData() {
