@@ -12,6 +12,10 @@ const state = {
 };
 
 const getters = {
+  getUser(state) {
+    return JSON.parse(JSON.stringify(state.user));
+  },
+
   getAuthToken(state) {
     return state.auth_token;
   },
@@ -47,7 +51,7 @@ const actions = {
   },
 
   loginUser({ commit }, payload) {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       axios
         .post(`${BASE_URL}users/sign_in`, payload)
         .then((response) => {

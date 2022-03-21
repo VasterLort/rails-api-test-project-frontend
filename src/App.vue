@@ -1,21 +1,30 @@
 <template>
   <div class="container">
-    <SessionManager />
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/posts">Posts</router-link> |
+      <router-link to="/sign_in">Login</router-link> |
+      <router-link to="/sign_up">Register</router-link> |
+      <router-link to="/profile">Profile</router-link> |
+      <button type="button" class="btn btn-primary" v-if="isLoggedIn" @click="logoutUser">Logout</button>
     </nav>
     <router-view/>
   </div>
 </template>
 
 <script>
-import SessionManager from "./components/SessionManager.vue";
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
-  name: "App",
-  components: {
-    SessionManager
+  name: 'App',
+
+  computed: {
+    ...mapGetters(['isLoggedIn'])
   },
+  
+  methods: {
+    ...mapActions(['logoutUser'])
+  }
 }
 </script>
 

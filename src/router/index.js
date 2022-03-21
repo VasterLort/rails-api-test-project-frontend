@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from "../components/HomePage.vue";
-import PostIndex from "../components/PostIndex.vue";
-import UpdatePassword from "../components/UpdatePassword.vue";
-import PasswordChangeForm from "../components/PasswordChangeForm.vue";
-import EmailChangeForm from "../components/EmailChangeForm.vue";
-import ReceiveConfirmation from "../components/ReceiveConfirmation.vue";
-import DeleteAccount from "../components/DeleteAccount.vue";
+
+import HomePage from '../components/HomePage.vue';
+import PostIndex from '../components/PostIndex.vue';
+import LoginPage from '../components/LoginPage.vue';
+import SignUpPage from '../components/SignUpPage.vue';
+import ProfilePage from '../components/ProfilePage.vue';
+import NewPasswordPage from '../components/NewPasswordPage.vue';
 
 const routes = [
   {
@@ -19,29 +19,25 @@ const routes = [
     component: PostIndex
   },
   {
-    path: "/users/password/edit",
-    name: "UpdatePassword",
-    component: UpdatePassword
+    path: "/user/password/edit",
+    name: "NewPasswordPage",
+    component: NewPasswordPage
   },
   {
-    path: "/users/edit",
-    name: "PasswordChangeForm",
-    component: PasswordChangeForm
+    path: "/sign_in",
+    name: "LoginPage",
+    component: LoginPage,
+    props: route => ({ query: route.query.status_token })
   },
   {
-    path: "/users/email/edit",
-    name: "EmailChangeForm",
-    component: EmailChangeForm
+    path: "/sign_up",
+    name: "SignUpPage",
+    component: SignUpPage
   },
   {
-    path: "/users/confirmation",
-    name: "ReceiveConfirmation",
-    component: ReceiveConfirmation
-  },
-  {
-    path: "/users/delete",
-    name: "DeleteAccount",
-    component: DeleteAccount
+    path: "/profile",
+    name: "ProfilePage",
+    component: ProfilePage
   }
 ];
 
